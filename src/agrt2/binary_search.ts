@@ -78,3 +78,28 @@ function findNumberByAgnosticBynaricSearch(arr: number[], target: number) {
 }
 
 //Exercicios
+//1 Achar o numero alvo ou o menor numero que se aproxima no numero alvo
+const ex1Arr = [3, 6, 9, 10, 13, 20];
+
+findTheTargetOrSmallest(ex1Arr, 6);
+
+function findTheTargetOrSmallest(arr: number[], target: number) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    const mid = Math.trunc((start + end) / 2);
+
+    console.log(`Starting at: ${start} / End at: ${end}`);
+    if (arr[mid] > target) {
+      end = mid - 1;
+    } else if (arr[mid] < target) {
+      start = mid + 1;
+    } else if (arr[mid] == target) {
+      console.log(`Numero alvo no array: ${arr[mid]}`);
+      return;
+    }
+  }
+
+  console.log(`Menor numero proximo = ${arr[end]}`);
+}
