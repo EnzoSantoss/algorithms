@@ -41,7 +41,7 @@ const matrix = [
 
 //searchRoll(matrix, 8);
 //Retorna a possivel linha onde esta o alvo
-const possibleRow = searchRoll(matrix, 9);
+//const possibleRow = searchRoll(matrix, 9);
 function searchRoll(matrix: number[][], target: number) {
   let start = 0;
   let end = matrix.length - 1;
@@ -63,7 +63,7 @@ function searchRoll(matrix: number[][], target: number) {
   return end;
 }
 
-searchOverRoll(matrix, possibleRow, 9);
+//searchOverRoll(matrix, possibleRow, 9);
 
 function searchOverRoll(matrix: number[][], row: number, target: number) {
   const targetRow = matrix[row];
@@ -84,4 +84,36 @@ function searchOverRoll(matrix: number[][], row: number, target: number) {
   }
 
   console.log(`VALUE NOT FOUND`);
+}
+
+//EX 2
+
+const matrix2 = [
+  [3, 4, 5, 6],
+  [7, 8, 9, 11],
+  [14, 16, 17, 20],
+  [33, 54, 58, 99],
+];
+
+binarySearch3(matrix2, 100);
+function binarySearch3(matrix: number[][], target: number) {
+  let row = 0;
+  let col = matrix.length - 1;
+
+  while (row < matrix.length && col >= 0) {
+    //const mid = Math.floor((row+col)/2)
+    console.log(" ");
+    console.log(`CURRENT ROW ${row} - CURRENT COL ${col}`);
+    if (matrix[row][col] == target) {
+      console.log(`ITEM ENCONTRADO EM ROW (${row}) | COL (${col})`);
+      return;
+    } else if (matrix[row][col] < target) {
+      row++;
+    } else if (matrix[row][col] > target) {
+      col--;
+    }
+    console.log(" ");
+  }
+
+  console.log("final");
 }
