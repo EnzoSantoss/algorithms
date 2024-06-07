@@ -54,4 +54,57 @@ function sum(n: number) {
   return digit + sum(rest);
 }
 
-console.log(sum(1234));
+//console.log(sum(1234));
+
+//Question 4
+//Reverse a number
+
+function reverse(n: number) {
+  if (n % 10 == n) {
+    return n;
+  }
+
+  const lastNumber = n % 10;
+  const rest = Math.floor(n / 10);
+
+  return lastNumber + "" + reverse(rest);
+}
+
+//console.log(reverse(123));
+
+//Question 5
+//Return number of 0
+
+function zeroCounter(n: number, qtd: number) {
+  if (n % 10 == n) {
+    n == 0 && qtd++;
+
+    return qtd;
+  }
+
+  const lastNumber = n % 10;
+
+  const rest = Math.floor(n / 10);
+
+  lastNumber == 0 && qtd++;
+
+  return zeroCounter(rest, qtd);
+}
+
+//console.log(zeroCounter(101, 0));
+
+//Question 6
+//Number of steps to reduce number to zero
+function reduc(number: number, qtdSteps: number) {
+  if (number == 0) {
+    return qtdSteps;
+  }
+
+  const value = number % 2 == 0 ? number / 2 : number - 1;
+
+  qtdSteps++;
+
+  return reduc(value, qtdSteps);
+}
+
+//console.log(reduc(8, 0));
